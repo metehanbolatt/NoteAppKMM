@@ -3,6 +3,7 @@ package com.metehanbolat.noteappkmm.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -13,6 +14,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.metehanbolat.noteappkmm.android.note_list.NoteListScreen
+import dagger.hilt.android.AndroidEntryPoint
 
 @Composable
 fun MyApplicationTheme(
@@ -52,13 +55,14 @@ fun MyApplicationTheme(
         content = content
     )
 }
-
+@ExperimentalFoundationApi
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyApplicationTheme {
-
+                NoteListScreen()
             }
         }
     }
